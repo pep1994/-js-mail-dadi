@@ -3,6 +3,7 @@
 var mailList = ["mario.rossi@gmail.com", "pincopallo@live.it", "studio.neri@gmail.com", "bianchi64@gmail.com"];
 var userMail;
 var eventMail;
+var msg;
 
 
 
@@ -18,11 +19,21 @@ userMail = prompt("Inserisci la tua email per registrarti all'evento");
 
 // controllo che la mail inserita dall'utente sia presente nella mia lista
 
+// stabilisco che il ciclo viene eseguito finchè la variabile i è minore di 4(lunghezza arrey)
 for (var i = 0; i < mailList.length; i++) {
+  // assegno la variabile che stabilisce ogni item dell'array
   eventMail = mailList[i];
-  if (userMail === eventMail) {
-    console.log("hai vinto");
+
+  // se la mail dell'utente è uguale a quella di un item dell'arrey allora stampa in console che l'utente è registrato
+  if (eventMail === userMail) {
+    msg = "Mail confermata, sei registrato all'evento!";
+    i = mailList.length;
+    // altrimenti stampa che non è registrato
   } else {
-    console.log("hai perso");
+    msg = "Mail non trovata, non puoi registrarti all'evento";
   }
 }
+
+
+// output
+document.getElementById('title').innerHTML = msg;
