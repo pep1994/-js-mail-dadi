@@ -11,6 +11,9 @@ var msg;
 
 userMail = prompt("Inserisci la tua email per registrarti all'evento");
 
+// valorazizzazione variabile messaggio di default
+msg = "Mail non trovata, non puoi registrarti all'evento";
+
 
 // se la mail inserita dall'utente risulta essere nella mia lista allora potrà registrarsi all'evento
 
@@ -24,16 +27,10 @@ for (var i = 0; i < mailList.length; i++) {
   // assegno la variabile che stabilisce ogni item dell'array
   eventMail = mailList[i];
 
-  // se la mail dell'utente è uguale a quella di un item dell'arrey allora stampa in console che l'utente è registrato
   if (eventMail === userMail) {
     msg = "Mail confermata, sei registrato all'evento!";
-    i = mailList.length;
-    // altrimenti stampa che non è registrato
-  } else {
-    msg = "Mail non trovata, non puoi registrarti all'evento";
   }
 }
-
 
 // output
 document.getElementById('title').innerHTML = msg;
